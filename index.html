@@ -9,13 +9,15 @@
 
     <!-- Bootstrap -->
     <link href="lib/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <!--  Quill -->
+    <link  href="//cdn.quilljs.com/0.20.1/quill.snow.css" rel="stylesheet">
 	<!-- Angular -->
 	 <script src="lib/angular/angular.min.js"></script>
 	 <script src="scripts/_lzy.js"></script>
 	 <script src="scripts/directives/lzyNavBar.js"></script>
 	 <script src="scripts/directives/lzyVideoEntry.js"></script>
 	 <script src="scripts/directives/lzyImageEntry.js"></script>
+   <script src="scripts/directives/lzyTextEditor.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -23,15 +25,22 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body data-ng-app="luzenly">
+  <body data-ng-app="luzenly" >
   <lzy-nav-bar>
   </lzy-nav-bar>
    <lzy-video-entry youtube-url="'https://www.youtube.com/watch?v=jlMW-r81jIM'"></lzy-video-entry>
-   <lzy-image-entry data-entry-title="'Testing title'" url="'http://fondsecranwallpapers.free.fr/wallpaper-nature-et-paysage/img/images/wallpaper-paysage-montagne-mont-blanc-nature.jpg'"></lzy-image-entry>
+  <lzy-image-entry data-entry-title="'Testing title'" url="'http://fondsecranwallpapers.free.fr/wallpaper-nature-et-paysage/img/images/wallpaper-paysage-montagne-mont-blanc-nature.jpg'"></lzy-image-entry>
+   <lzy-text-editor my-attr="1"></lzy-text-editor>
+   
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="lib/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <!-- QUill Scripts-->
+    <!--Quill library -->
+    <script src="http://cdn.quilljs.com/0.20.1/quill.js" type="text/javascript"></script>
+    
+
   </body>
 </html>

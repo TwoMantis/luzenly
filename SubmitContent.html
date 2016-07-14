@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>Content Upload</title>
+
+<!-- Bootstrap -->
+<link href="lib/bootstrap-3.3.6-dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<!--  Quill -->
+<link href="//cdn.quilljs.com/0.20.1/quill.snow.css" rel="stylesheet">
+<!-- Angular -->
+<script src="lib/angular/angular.min.js"></script>
+<script src="scripts/_lzy.js"></script>
+<script src="scripts/directives/lzyNavBar.js"></script>
+<script src="scripts/directives/lzyVideoEntry.js"></script>
+<script src="scripts/directives/lzyImageEntry.js"></script>
+<script src="scripts/directives/lzyTextEditor.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body data-ng-app="luzenly">
+	<lzy-nav-bar> </lzy-nav-bar>
+	
+	<div ng-controller="submitCtrl">
+		<select ng-model="postType">
+			<option value="image" selected>Image</option>
+			<option value="video">Video</option>
+			<option value="text">Text</option>
+		</select><br />	<br />
+		
+		<div ng-show="postType=='image'">
+			<!-- here goes the input tag -->
+			Image Url <input type="text" ng-model="imageUrl" /><br/><br/>
+			Image Title <input type="text" ng-model="imageTitle"/>
+			<lzy-image-entry data-entry-title="imageTitle" url="imageUrl" ></lzy-image-entry>
+		</div>
+
+		
+		<div ng-show="postType=='video'">
+			<!-- here goes the input tag -->
+			Video Url <input type="text" ng-model="videoUrl">
+			<lzy-video-entry youtube-url="videoUrl"></lzy-video-entry>
+		</div>
+
+		<div ng-show="postType=='text'">
+			<!-- here goes the input tag -->
+			<lzy-text-editor></lzy-text-editor>
+		</div>
+
+
+		<script src="scripts/controllers/contentUploadCtrl.js">
+		</script>
+	</div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="lib/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+	<!--Quill library -->
+	<script src="http://cdn.quilljs.com/0.20.1/quill.js"
+		type="text/javascript"></script>
+
+
+</body>
+</html>

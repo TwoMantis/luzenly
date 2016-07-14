@@ -8,8 +8,14 @@ angular.module("luzenly").directive("lzyVideoEntry", ["$sce",
 		},
 		
 		link : function(scope, element, attrs){
-			scope.secureYoutubeUrl = scope.youtubeUrl.replace("watch?v=", "v/");
-			scope.secureYoutubeUrl = $sce.getTrustedResourceUrl(scope.secureYoutubeUrl); 
+			scope.$watch("youtubeUrl", function(newValue,oldValue){
+				scope.secureYoutubeUrl = newValue.replace("watch?v=", "v/");
+				scope.secureYoutubeUrl = $sce.getTrustedResourceUrl(scope.secureYoutubeUrl);
+				console.log(newValue);
+				//scope.secureYoutubeUrl = scope.youtubeUrl.replace("watch?v=", "v/");
+				//scope.secureYoutubeUrl = $sce.getTrustedResourceUrl(scope.secureYoutubeUrl);
+			});
+			 
 		}
 	}
 }]);
