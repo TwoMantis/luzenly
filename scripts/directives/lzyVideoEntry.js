@@ -11,7 +11,7 @@ angular.module("luzenly").directive("lzyVideoEntry", ["$sce",
 			scope.$watch("youtubeUrl", function(newValue,oldValue){
 				scope.secureYoutubeUrl = newValue.replace("watch?v=", "v/");
 				scope.secureYoutubeUrl = $sce.getTrustedResourceUrl(scope.secureYoutubeUrl);
-				console.log(newValue);
+				//console.log(newValue);
 				//scope.secureYoutubeUrl = scope.youtubeUrl.replace("watch?v=", "v/");
 				//scope.secureYoutubeUrl = $sce.getTrustedResourceUrl(scope.secureYoutubeUrl);
 			});
