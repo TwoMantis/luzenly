@@ -18,56 +18,40 @@
 		<script src="scripts/directives/lzyVideoEntry.js"></script>
 		<script src="scripts/directives/lzyImageEntry.js"></script>
 		<script src="scripts/directives/lzyTextEditor.js"></script>
+		<script src="scripts/directives/lzyTextEntry.js"></script>
 		<script src="scripts/directives/lzyContentUploadSelector.js"></script>
-     	<script src="scripts/controllers/lzyContentUploadCtrl.js"></script>
+     	<script src="scripts/controllers/lzyCreatePostCtrl.js"></script>
+		<script src="scripts/services/lzySavePostService.js"></script>
+		
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
 				      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-				      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+					      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 				    <![endif]-->
 	</head>
-	<body data-ng-app="luzenly" ng-controller="submitCtrl">
+
+	<body data-ng-app="luzenly" ng-controller="lzyCreatePostCtrl">
 		<lzy-nav-bar> </lzy-nav-bar>
 		<lzy-content-upload-selector type="postType" title="imageTitle" image-url="imageUrl" 
-		video-url="videoUrl" text-entry="editorText"></lzy-content-upload-selector>
-		
-	<div ng-show="postType=='image'">
-		<lzy-image-entry data-entry-title="imageTitle" url="imageUrl"></lzy-image-entry>
-	</div>
+			video-url="videoUrl" text-entry="editorText"></lzy-content-upload-selector>
 
-	<div ng-show="postType=='video'">
-		<lzy-video-entry youtube-url="videoUrl"></lzy-video-entry>
-	</div>
+		<div>
+			<input type="button" value="submit" ng-click="submitButtonClick()" />
+		</div>
+		<div ng-show="postType=='image'">
+			<lzy-image-entry data-entry-title="imageTitle" url="imageUrl"></lzy-image-entry>
+		</div>
 
-	<div ng-show="postType=='text'">
-		<lzy-text-entry text-input="editorText" text-to-bind=""></lzy-text-entry>
-	</div>
+		<div ng-show="postType=='video'">
+			<lzy-video-entry youtube-url="videoUrl"></lzy-video-entry>
+		</div>
+
+		<div ng-show="postType=='text'">
+			<lzy-text-entry text-input="editorText" text-to-bind=""></lzy-text-entry>
+		</div>
 		
-		
-		
-		<script>
-		angular.module("luzenly").directive("lzyTextEntry", ['$sce',
-				function($sce){
-					return{
-						replace: "E",
-						templateUrl : "/luzenly/templates/lzyTextEntry.html",
-						scope:{
-							textInput : "=",
-							textToBind : "="
-						},
-						link: function(scope){
-							scope.$watch("textInput", function(newValue, oldValue){
-								scope.textToBind=$sce.trustAsHtml(newValue);
-							})
-							
-						}
-					
-					}	
-		}]);
-		
-		</script>
-<script src="//code.angularjs.org/1.2.20/angular-sanitize.min.js"></script>
+		<script src="//code.angularjs.org/1.2.20/angular-sanitize.min.js"></script>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->

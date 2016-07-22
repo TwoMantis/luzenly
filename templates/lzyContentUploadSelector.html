@@ -6,8 +6,8 @@
 	</select><br /> <br />
 
 	<div ng-show="type=='image'">
+		Image Title <input type="text" ng-model="title" /><br /> <br />
 		Image Url <input type="text" ng-model="imageUrl" /><br /> <br />
-		Image Title <input type="text" ng-model="title" />
 	</div>
 
 
@@ -19,8 +19,6 @@
 		<lzy-text-editor text-written="textEntry"></lzy-text-editor>
 	</div>
 
-	<div>
-		<input type="button" value="submit" ng-click="submitButtonClick()" />
-	</div>
+
 </div>
 
