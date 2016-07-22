@@ -15,8 +15,13 @@ angular.module("luzenly").service('lzySavePostService',
 				//});
    			}
 
-		this.createPost = function(idCreator, videoLink, successCallBack, failureCallBack) {
-            var data = { idCreator};
+		this.createPost = function(idCreator, title, url, type, successCallBack, failureCallBack) {
+            var data = { 
+				idCreator : idCreator,
+				title : title,
+				url : url,
+				type : type,
+				};
             this.___getHttpObject("php/lzySaveVideo.php", "POST", data)
                 .then(successCallBack)
 			    .error(failureCallBack);

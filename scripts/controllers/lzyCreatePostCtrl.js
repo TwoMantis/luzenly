@@ -3,10 +3,11 @@ angular.module("luzenly").controller('lzyCreatePostCtrl',
 			$scope.postType = "image";
 			$scope.imageTitle = "";
 			$scope.imageUrl = "";
+			$scope.videoTitle = "";
 			$scope.videoUrl ="";
 			$scope.editorText="";
 			//save.createAccount();
 			$scope.submitButtonClick = function(){
-				save.createPost("1", $scope.videoUrl, function(response){}, function(error){});
+				lzySavePostService.createPost("1", $scope.videoUrl, function(response){}, function(error){});
 			};
 		}]);

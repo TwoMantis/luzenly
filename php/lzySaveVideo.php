@@ -1,6 +1,5 @@
 <?php
-    header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-    //insert getConnection.php
+    include("lzyGetConnection.php");
 
 	//Code for succesful connection here
     $request = json_decode(file_get_contents('php://input'));

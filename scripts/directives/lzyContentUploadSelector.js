@@ -8,6 +8,7 @@ angular.module("luzenly").directive("lzyContentUploadSelector",
 			imageUrl : "=",
 			videoUrl : "=",
 			textEntry : "=",
+			videoTitle : "="
 		},
 		templateUrl : "/luzenly/templates/lzyContentUploadSelector.html",
 		link : function(scope, element, attrs){

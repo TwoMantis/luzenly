@@ -4,6 +4,7 @@ angular.module("luzenly").directive("lzyVideoEntry", ["$sce",
 		replace: "E",
 		templateUrl : "/luzenly/templates/lzyVideoEntry.html",
 		scope:{
+			title : "=",
 			youtubeUrl : "="
 		},
 		

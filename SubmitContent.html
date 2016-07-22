@@ -34,7 +34,7 @@
 	<body data-ng-app="luzenly" ng-controller="lzyCreatePostCtrl">
 		<lzy-nav-bar> </lzy-nav-bar>
 		<lzy-content-upload-selector type="postType" title="imageTitle" image-url="imageUrl" 
-			video-url="videoUrl" text-entry="editorText"></lzy-content-upload-selector>
+			video-url="videoUrl" text-entry="editorText" video-title="videoTitle"></lzy-content-upload-selector>
 
 		<div>
 			<input type="button" value="submit" ng-click="submitButtonClick()" />
@@ -44,7 +44,7 @@
 		</div>
 
 		<div ng-show="postType=='video'">
-			<lzy-video-entry youtube-url="videoUrl"></lzy-video-entry>
+			<lzy-video-entry title="videoTitle" youtube-url="videoUrl"></lzy-video-entry>
 		</div>
 
 		<div ng-show="postType=='text'">

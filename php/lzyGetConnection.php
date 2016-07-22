@@ -1,3 +1,5 @@
+	<?php 
+	header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 	//Variables to connect to the DB
 	$serverName = "localhost";
 	$userName = "root";
@@ -10,3 +12,4 @@
 		echo "Server Error: " . $connection->connect_error;
         die ("");
 	} 
+	?>
