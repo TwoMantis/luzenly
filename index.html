@@ -29,19 +29,21 @@
   <body data-ng-app="luzenly" >
   <lzy-nav-bar>
   </lzy-nav-bar>
-   <lzy-video-entry youtube-url="'https://www.youtube.com/watch?v=jlMW-r81jIM'"></lzy-video-entry>
-  <lzy-image-entry data-entry-title="'Testing title'" url="'http://fondsecranwallpapers.free.fr/wallpaper-nature-et-paysage/img/images/wallpaper-paysage-montagne-mont-blanc-nature.jpg'"></lzy-image-entry>
-   <lzy-text-editor my-attr="1"></lzy-text-editor>
-   
+  <div ng-repeat="post in posts">
+    <div ng-if="post.type==='V'">
+      <lzy-video-entry entry-title = "post.title" youtube-url="post.url"></lzy-video-entry>
+    </div>
+    <div ng-if="post.type === 'I'">
+  <lzy-image-entry entry-title="post.title" url="post.url"></lzy-image-entry>
+    </div>
+    <div ng-if = "post.type === 'T'">
+   <lzy-text-editor my-attr="post.text"></lzy-text-editor>
+    </div>
+  </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="lib/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-    <!-- QUill Scripts-->
-    <!--Quill library -->
-    <script src="http://cdn.quilljs.com/0.20.1/quill.js" type="text/javascript"></script>
-    
-
   </body>
 </html>

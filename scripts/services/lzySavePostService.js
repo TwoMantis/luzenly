@@ -15,15 +15,22 @@ angular.module("luzenly").service('lzySavePostService',
 				//});
    			}
 
-		this.createPost = function(idCreator, title, url, type, successCallBack, failureCallBack) {
+		this.createPost = function(idCreator, title, url, type, text, successCallback, errorCallback) {
             var data = { 
 				idCreator : idCreator,
 				title : title,
 				url : url,
 				type : type,
+				text : text
 				};
-            this.___getHttpObject("php/lzySaveVideo.php", "POST", data)
-                .then(successCallBack)
-			    .error(failureCallBack);
-		}
+            this.__getHttpObject("/php/lzySavePost.php", "POST", data)
+                .then(successCallback
+			    ,errorCallback);
+		};
+
+		this.getPosts = function(successCallback, errorCallback){
+			this.__getHttpObject("/php/lzyGetContents.php", "GET", {}).then(successCallback, errorCallback);
+		};
+
+
 }]);

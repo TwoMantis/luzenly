@@ -4,8 +4,7 @@
 						replace: "E",
 						templateUrl : "/luzenly/templates/lzyTextEntry.html",
 						scope:{
-							textInput : "=",
-							textToBind : "="
+							textInput : "="
 						},
 						link: function(scope){
 							scope.$watch("textInput", function(newValue, oldValue){

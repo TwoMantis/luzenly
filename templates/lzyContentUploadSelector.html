@@ -1,19 +1,13 @@
 <div>
-	<select ng-model="type">
-		<option value="image">Image</option>
+	<select ng-change="onTypeChange()" ng-model="type">
+		<option  value="image">Image</option>
 		<option value="video">Video</option>
 		<option value="text">Text</option>
 	</select><br /> <br />
 
-	<div ng-show="type=='image'">
-		Image Title <input type="text" ng-model="title" /><br /> <br />
-		Image Url <input type="text" ng-model="imageUrl" /><br /> <br />
-	</div>
-
-
-	<div ng-show="type=='video'">
-		Video Title <input type="text" ng-model="videoTitle" /><br /> <br />
-		Video Url <input type="text" ng-model="videoUrl">
+	<div ng-show="type=='image' || type=='video'">
+		Title <input type="text" ng-model="title" /><br /> <br />
+		Url <input type="text" ng-model="url" /><br /> <br />
 	</div>
 
 	<div ng-show="type=='text'">

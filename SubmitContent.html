@@ -14,6 +14,7 @@
 		<!-- Angular -->
 		<script src="lib/angular/angular.min.js"></script>
 		<script src="scripts/_lzy.js"></script>
+		<script src="scripts/services/lzySavePostService.js"></script>
 		<script src="scripts/directives/lzyNavBar.js"></script>
 		<script src="scripts/directives/lzyVideoEntry.js"></script>
 		<script src="scripts/directives/lzyImageEntry.js"></script>
@@ -21,8 +22,7 @@
 		<script src="scripts/directives/lzyTextEntry.js"></script>
 		<script src="scripts/directives/lzyContentUploadSelector.js"></script>
      	<script src="scripts/controllers/lzyCreatePostCtrl.js"></script>
-		<script src="scripts/services/lzySavePostService.js"></script>
-		
+
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -33,18 +33,17 @@
 
 	<body data-ng-app="luzenly" ng-controller="lzyCreatePostCtrl">
 		<lzy-nav-bar> </lzy-nav-bar>
-		<lzy-content-upload-selector type="postType" title="imageTitle" image-url="imageUrl" 
-			video-url="videoUrl" text-entry="editorText" video-title="videoTitle"></lzy-content-upload-selector>
+		<lzy-content-upload-selector type="postType" title="title" url="url" text-entry="editorText"></lzy-content-upload-selector>
 
 		<div>
 			<input type="button" value="submit" ng-click="submitButtonClick()" />
 		</div>
 		<div ng-show="postType=='image'">
-			<lzy-image-entry data-entry-title="imageTitle" url="imageUrl"></lzy-image-entry>
+			<lzy-image-entry data-entry-title="title" url="url"></lzy-image-entry>
 		</div>
 
 		<div ng-show="postType=='video'">
-			<lzy-video-entry title="videoTitle" youtube-url="videoUrl"></lzy-video-entry>
+			<lzy-video-entry title="title" youtube-url="url"></lzy-video-entry>
 		</div>
 
 		<div ng-show="postType=='text'">

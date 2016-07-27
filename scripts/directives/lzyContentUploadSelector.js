@@ -5,13 +5,16 @@ angular.module("luzenly").directive("lzyContentUploadSelector",
 		scope: {
 			type : "=",
 			title : "=",
-			imageUrl : "=",
-			videoUrl : "=",
-			textEntry : "=",
-			videoTitle : "="
+			url : "=",
+			textEntry : "="
 		},
 		templateUrl : "/luzenly/templates/lzyContentUploadSelector.html",
-		link : function(scope, element, attrs){
+		link : function($scope, $element, $attrs){
+			$scope.onTypeChange = function(){
+				$scope.title = "";
+				$scope.url ="";
+				$scope.textEntry="";	
+			};
 		}
 	}
 });

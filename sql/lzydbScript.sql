@@ -15,7 +15,7 @@ CREATE TABLE posts(
 	id INT NOT NULL AUTO_INCREMENT,
 	create_date DATE NOT NULL,
 	update_date DATE NOT NULL,
-	autor INT NOT NULL,
+	author INT NOT NULL,
 	is_reviewed BIT NOT NULL,
 	reviewed_by INT,
 	is_deleted BIT,
