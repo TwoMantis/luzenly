@@ -8,6 +8,10 @@ angular.module("luzenly", ['ngRoute']).config(['$routeProvider','$sceDelegatePro
         templateUrl: '/luzenly/templates/lzyGetContents.html',
         controller: 'lzyGetContentsCtrl'
       }).
+      when('/submitContent', {
+        templateUrl: '/luzenly/templates/lzySubmitContent.html',
+        controller: 'lzyCreatePostCtrl'
+      }).
       otherwise({
         redirectTo: '/getContents'
       });
