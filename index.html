@@ -13,12 +13,17 @@
     <link  href="//cdn.quilljs.com/0.20.1/quill.snow.css" rel="stylesheet">
 	<!-- Angular -->
 	 <script src="lib/angular/angular.min.js"></script>
+   <script src="lib/angular/angular-route.min.js"></script>
 	 <script src="scripts/_lzy.js"></script>
 	 <script src="scripts/directives/lzyNavBar.js"></script>
 	 <script src="scripts/directives/lzyVideoEntry.js"></script>
 	 <script src="scripts/directives/lzyImageEntry.js"></script>
-     <script src="scripts/directives/lzyTextEditor.js"></script>
-
+   <script src="scripts/directives/lzyTextEntry.js"></script>
+   <script src="scripts/directives/lzyTextEditor.js"></script>      
+   <script src="scripts/directives/lzyContentUploadSelector.js"></script>
+   <script src="scripts/controllers/lzyGetContentsCtrl.js"></script>      
+   <script src="scripts/controllers/lzyCreatePostCtrl.js"></script>
+   <script src="scripts/services/lzySavePostService.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -29,18 +34,8 @@
   <body data-ng-app="luzenly" >
   <lzy-nav-bar>
   </lzy-nav-bar>
-  <div ng-repeat="post in posts">
-    <div ng-if="post.type==='V'">
-      <lzy-video-entry entry-title = "post.title" youtube-url="post.url"></lzy-video-entry>
-    </div>
-    <div ng-if="post.type === 'I'">
-  <lzy-image-entry entry-title="post.title" url="post.url"></lzy-image-entry>
-    </div>
-    <div ng-if = "post.type === 'T'">
-   <lzy-text-editor my-attr="post.text"></lzy-text-editor>
-    </div>
-  </div>
 
+<div class="ng-view"></div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

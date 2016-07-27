@@ -1,0 +1,13 @@
+<div>
+       <div ng-repeat="post in posts">
+            <div ng-if="post.type==='V'">
+                <lzy-video-entry video-title = "post.title" youtube-url="post.url"></lzy-video-entry>
+            </div>
+            <div ng-if="post.type === 'I'">
+                <lzy-image-entry entry-title="post.title" url="post.url"></lzy-image-entry>
+            </div>
+            <div ng-if = "post.type === 'T'">
+                <lzy-text-entry text-input="post.text"></lzy-text-entry>
+            </div>
+        </div>
+    </div>
