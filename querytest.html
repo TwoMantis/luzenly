@@ -12,7 +12,7 @@
     <!--  Quill -->
     <link  href="lib/quill/css/quill.snow.css" rel="stylesheet">
     <script  src="lib/quill/js/quill.min.js"></script>
-  <!--  <script src="lib/jquery/jquery-3.1.0.min.js"></script> -->
+    <script src="lib/jquery/jquery-2.2.4.min.js"></script>
 	<!-- Angular -->
 	 <script src="lib/angular/angular.min.js"></script>
    <script src="lib/angular/angular-route.min.js"></script>
@@ -25,7 +25,6 @@
    <script src="scripts/directives/lzyContentUploadSelector.js"></script>
    <script src="scripts/controllers/lzyGetContentsCtrl.js"></script>      
    <script src="scripts/controllers/lzyCreatePostCtrl.js"></script>
-   <script src="scripts/controllers/lzySinglePostCtrl.js"></script>
    <script src="scripts/services/lzySavePostService.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,14 +33,38 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body data-ng-app="luzenly" >
+  <body data-ng-app="luzenly" ng-controller="singlePostCtrl">
   <lzy-nav-bar>
   </lzy-nav-bar>
-
-<div class="ng-view"></div>
+  <div>
+       <div ng-repeat="post in posts">
+            <div ng-if="post.type==='V'">
+                <lzy-video-entry video-title = "post.title" youtube-url="post.url"></lzy-video-entry>
+            </div>
+            <div ng-if="post.type === 'I'">
+                <lzy-image-entry entry-title="post.title" url="post.url"></lzy-image-entry>
+            </div>
+            <div ng-if = "post.type === 'T'">
+                <lzy-text-entry text-input="post.text"></lzy-text-entry>
+            </div>
+        </div>
+    </div>
+    <script>
+      angular.module('luzenly').controller('singlePostCtrl',
+        ['$scope', 'lzySavePostService', 
+        function($scope, lzySavePostService){
+            $scope.posts = null;
+				lzySavePostService.getPost(57,
+				function(response){
+                    $scope.posts = response.data;
+                }, 
+				function(error){console.log("error");});
+        }]
+      );
+    </script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-        
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="lib/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
   </body>
 </html>

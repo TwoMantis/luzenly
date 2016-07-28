@@ -7,5 +7,7 @@ angular.module("luzenly").directive("lzyImageEntry", ["$sce",
 			url : "=",
 			entryTitle: "="
 		}
+		
+
 	}
 }]);

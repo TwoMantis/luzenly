@@ -32,5 +32,9 @@ angular.module("luzenly").service('lzySavePostService',
 			this.__getHttpObject("/php/lzyGetContents.php", "GET", {}).then(successCallback, errorCallback);
 		};
 
+		this.getPost = function(idPost, successCallback, errorCallback){
+			this.__getHttpObject("/php/lzyGetPost.php?id="+idPost, "GET",{} ).then(successCallback, errorCallback);
+		};
+
 
 }]);
