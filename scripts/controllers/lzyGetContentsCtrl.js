@@ -1,9 +1,10 @@
 angular.module("luzenly").controller('lzyGetContentsCtrl',
-    ['$scope','lzySavePostService',
-        function($scope,lzySavePostService){
+    ['$scope','lzySavePostService', '$rootScope',
+        function($scope,lzySavePostService, $rootScope){
             $scope.posts = null;
-            $scope.showPost = function(id){
-               window.location.href = "#getPost/"+id;
+            $scope.showPost = function(post){
+               $rootScope.singlePost= post;
+               window.location.href = "#getPost/"+post.id;
             }
             lzySavePostService.getPosts(        
             function(response){
