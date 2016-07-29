@@ -11,6 +11,7 @@ angular.module("luzenly").controller('lzyGetContentsCtrl',
                 $scope.posts = response.data;        
             },
             function(error){
-        });          
+            });          
+
     }
 ]);

@@ -1,6 +1,6 @@
 angular.module("luzenly").controller('lzyCreatePostCtrl',
 		[ '$scope', '$sce', 'lzySavePostService', function( $scope, $sce, lzySavePostService) {
-			$scope.postType = "image";
+			$scope.postType = "I";
 			$scope.title = "";
 			$scope.url ="";
 			$scope.editorText="";

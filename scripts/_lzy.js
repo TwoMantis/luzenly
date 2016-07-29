@@ -15,7 +15,11 @@ angular.module("luzenly", ['ngRoute']).config(['$routeProvider','$sceDelegatePro
           when('/getPost/:id', {
             templateUrl: '/luzenly/templates/lzyGetContents.html',
             controller: 'lzySinglePostCtrl'
-          }).
+          }).          
+          when('/editPost/', {
+            templateUrl: '/luzenly/templates/lzySubmitContent.html',
+            controller: 'lzyEditPostCtrl'
+          }). 
           otherwise({
             redirectTo: '/getContents'
           });

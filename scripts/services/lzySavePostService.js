@@ -28,6 +28,19 @@ angular.module("luzenly").service('lzySavePostService',
 			    ,errorCallback);
 		};
 
+		this.editPost = function(id, title, url,  text, type, successCallback, errorCallback) {
+            var data = { 
+				id : id,
+				title : title,
+				url : url,
+				text : text,
+				type : type
+				};
+            this.__getHttpObject("/php/lzyEditPost.php", "POST", data)
+                .then(successCallback
+			    ,errorCallback);
+		};
+
 		this.getPosts = function(successCallback, errorCallback){
 			this.__getHttpObject("/php/lzyGetContents.php", "GET", {}).then(successCallback, errorCallback);
 		};

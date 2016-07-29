@@ -1,16 +1,16 @@
 <div>
 	<select ng-change="onTypeChange()" ng-model="type">
-		<option  value="image">Image</option>
-		<option value="video">Video</option>
-		<option value="text">Text</option>
+		<option  value="I">Image</option>
+		<option value="V">Video</option>
+		<option value="T">Text</option>
 	</select><br /> <br />
 
-	<div ng-show="type=='image' || type=='video'">
+	<div ng-show="type=='I' || type=='V'">
 		Title <input type="text" ng-model="title" /><br /> <br />
 		Url <input type="text" ng-model="url" /><br /> <br />
 	</div>
 
-	<div ng-show="type=='text'">
+	<div ng-show="type=='T'">
 		<lzy-text-editor text-written="textEntry"></lzy-text-editor>
 	</div>
 

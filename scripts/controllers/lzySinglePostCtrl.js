@@ -2,6 +2,7 @@
         ['$scope', 'lzySavePostService', '$routeParams', '$rootScope', 
         function($scope, lzySavePostService, $routeParams, $rootScope){
             $scope.posts = null;
+
             if($rootScope.singlePost==null){
 				lzySavePostService.getPost($routeParams.id,
 				function(response){
@@ -10,6 +11,10 @@
 				function(error){console.log("error");});
             }else{   
                 $scope.posts = { posts : $rootScope.singlePost };
+            }
+            $scope.editPost = function(post){
+               $rootScope.singlePost= post;
+               window.location.href = "#editPost/";
             }
         }]
       );
