@@ -13,7 +13,7 @@ angular.module("luzenly").directive("lzyCreateUser",
 				$scope.nick = "";
 				$scope.password ="";
 				$scope.email="";	
-			
+
 		}
 	}
 });
