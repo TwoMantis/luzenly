@@ -14,18 +14,15 @@
         $url = $request->url;
         $text = $request->text;
         $insertPost = "INSERT INTO posts 
-        (create_date, update_date, autor, is_reviewed, title, url, type) 
+        (create_date, update_date, author, is_reviewed, title, url, type) 
         VALUES (CURDATE(), CURDATE(), {$idCreator}, 1, '{$title}', '{$url}', '{$type}');";
         $connection->query($insertPost) ;
-        echo $insertPost;
-        echo $type;
         if($type=="T"){
             $id = $connection->insert_id;
             $insertText = "INSERT INTO blog_entries 
             (id_post, text_content)
             VALUES ({$id},'{$text}');";
             $connection->query($insertText);
-            echo $insertText;
         }        
     }
 	//Closing connection

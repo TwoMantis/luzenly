@@ -24,7 +24,7 @@ CREATE TABLE posts(
 	type CHAR (1),
 	PRIMARY KEY (id),
     FOREIGN KEY (reviewed_by) REFERENCES accounts(id),
-	FOREIGN KEY (autor) REFERENCES accounts(id)
+	FOREIGN KEY (author) REFERENCES accounts(id)
 );
 
 CREATE TABLE tags(

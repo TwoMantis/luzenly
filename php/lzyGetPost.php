@@ -8,7 +8,7 @@
     $results = array();
     WHILE ($rows = mysqli_fetch_array($post)):
         $type    = $rows['type'];
-        $author   = $rows['autor'];
+        $author   = $rows['author'];
         $date = $rows['update_date'];
         $text = $rows['text_content'];
         $title = $rows['title'];
