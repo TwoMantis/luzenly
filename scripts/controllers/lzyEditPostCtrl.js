@@ -9,6 +9,10 @@
         
 			$scope.submitButtonClick = function(){
                 lzySavePostService.editPost($scope.id, $scope.title, $scope.url, $scope.editorText, $scope.postType,
-                function(response){debugger}, function(error){debugger});
+                function(response){
+                	console.log(response)
+                	}, function(error){
+                		console.log(error)}
+                	);
 			};
 		}]);

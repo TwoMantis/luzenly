@@ -6,17 +6,19 @@
 	$password = $request->password;
 	$passwordHash = hash('sha512',$password.'luzenlysaltcc', true);
 	$email = $request->email;
-
-	$query = "INSERT INTO accounts
-	(nick, password, email, strikes, type) 
+	$query = "INSERT INTO ACCOUNTS
+	(NICK, PASSWORD, EMAIL, STRIKES, USER_TYPE) 
 	VALUES 
-	('{$nick}','{$accountPasswordHash}', '{$email}', 0, 'U');";
+	('{$nick}','{$passwordHash}', '{$email}', 0, 'U');";
 
 	if($connection->query($query) === true){
-		echo "User Created!";
+		$responseArray['status'] = 'success';
+		$responseArray['msg'] = 'User Created';
 	}else{
-		echo "Error: " . $insertAccount . "<br>" . $connection->error;
+		$responseArray['status'] = 'error';
+		$responseArray['error'] = "Error: " . $insertAccount . "<br>" . $connection->error;
 	}
+	echo json_encode($responseArray);
 	//Closing connection
 	$connection->close();
 ?>

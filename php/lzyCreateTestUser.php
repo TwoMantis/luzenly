@@ -2,7 +2,7 @@
 	include("lzyGetConnection.php");
 	//Code for succesful connection here
 	$accountPasswordHash = hash('sha512','password'.'luzenlysaltcc', true);
-	$insertAccount = "INSERT INTO accounts (nick, password, email, strikes, type) 
+	$insertAccount = "INSERT INTO ACCOUNTS (NICK, PASSWORD, EMAIL, STRIKES, TYPE) 
 	VALUES ('accountTester','{$accountPasswordHash}', 'imnotanemail', 0, 'M');";
 	if($connection->query($insertAccount) === true){
 		echo "Everything was right :)";

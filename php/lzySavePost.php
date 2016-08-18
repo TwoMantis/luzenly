@@ -13,14 +13,14 @@
         $type = trim($request->type);
         $url = $request->url;
         $text = $request->text;
-        $insertPost = "INSERT INTO posts 
-        (create_date, update_date, author, is_reviewed, title, url, type) 
+        $insertPost = "INSERT INTO POSTS 
+        (CREATE_DATE, UPDATE_DATE, AUTHOR, IS_REVIEWED, TITLE, URL, POST_TYPE) 
         VALUES (CURDATE(), CURDATE(), {$idCreator}, 1, '{$title}', '{$url}', '{$type}');";
         $connection->query($insertPost) ;
         if($type=="T"){
             $id = $connection->insert_id;
-            $insertText = "INSERT INTO blog_entries 
-            (id_post, text_content)
+            $insertText = "INSERT INTO BLOG_ENTRIES 
+            (ID_POST, TEXT_CONTENT)
             VALUES ({$id},'{$text}');";
             $connection->query($insertText);
         }        

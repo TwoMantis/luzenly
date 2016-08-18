@@ -2,7 +2,7 @@
 				function($sce){
 					return{
 						replace: "E",
-						templateUrl : "/luzenly/templates/lzyTextEntry.html",
+						templateUrl : "/templates/lzyTextEntry.html",
 						scope:{
 							textInput : "="
 						},

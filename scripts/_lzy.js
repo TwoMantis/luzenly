@@ -6,7 +6,7 @@ angular.module("luzenly", ['ngRoute']).run(['$rootScope', '$window',
      var js, fjs = d.getElementsByTagName(s)[0]; 
      if (d.getElementById(id)) { return; } 
      js = d.createElement(s); 
-     js.id = id; js.src = "/luzenly/lib/facebook/sdk.js";
+     js.id = id; js.src = "/lib/facebook/sdk.js";
      fjs.parentNode.insertBefore(js, fjs); 
      }(document, 'script', 'facebook-jssdk'));
     
@@ -62,27 +62,27 @@ angular.module("luzenly", ['ngRoute']).run(['$rootScope', '$window',
           
       $routeProvider.
           when('/getContents', {
-            templateUrl: '/luzenly/templates/lzyGetContents.html',
+            templateUrl: '/templates/lzyGetContents.html',
             controller: 'lzyGetContentsCtrl'
           }).
           when('/submitContent', {
-            templateUrl: '/luzenly/templates/lzySubmitContent.html',
+            templateUrl: '/templates/lzySubmitContent.html',
             controller: 'lzyCreatePostCtrl'
           }).      
           when('/getPost/:id', {
-            templateUrl: '/luzenly/templates/lzyGetContents.html',
+            templateUrl: '/templates/lzyGetContents.html',
             controller: 'lzySinglePostCtrl'
           }).          
           when('/editPost/', {
-            templateUrl: '/luzenly/templates/lzySubmitContent.html',
+            templateUrl: '/templates/lzySubmitContent.html',
             controller: 'lzyEditPostCtrl'
           }). 
           when('/createUser/', {
-            templateUrl: '/luzenly/templates/lzyCreateUserForm.html',
+            templateUrl: '/templates/lzyCreateUserForm.html',
             controller: 'lzyCreateUserFormCtrl'
           }). 
           when('/loginPage/', {
-            templateUrl: '/luzenly/templates/lzyLogInForm.html',
+            templateUrl: '/templates/lzyLogInForm.html',
             controller: 'lzyLogInCtrl'
           }). 
           otherwise({

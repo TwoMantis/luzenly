@@ -7,13 +7,22 @@
         $title = $request->title;
         $url = $request->url;
         $text = $request->text;
-        $query = "UPDATE posts, blog_entries 
-        SET posts.title={$title}, 
-        post.url={$url},
-        post.update_date=CURDATE(), 
-        blog_entires.text_content={$text}
-        WHERE posts.id = blog_entries.id 
-        AND posts.id = {$id}";
+        /*
+        $query = "UPDATE POSTS, BLOG_ENTRIES 
+        SET POSTS.TITLE = '{$title}', 
+        POSTS.URL = '{$url}',
+        POSTS.UPDATE_DATE = CURDATE(), 
+        BLOG_ENTRIES.TEXT_CONTENT = {$text}
+        WHERE POSTS.ID = BLOG_ENTRIES.ID 
+        AND POSTS.ID = {$id}"; 
+        */
+        
+        $query = "UPDATE POSTS 
+        SET TITLE = '{$title}', 
+        URL = '{$url}',
+        UPDATE_DATE = CURDATE()
+        WHERE ID = {$id}"; 
+        
         $connection->query($query);
     }
 	//Closing connection

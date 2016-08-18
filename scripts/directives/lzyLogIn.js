@@ -6,7 +6,7 @@ angular.module("luzenly").directive("lzyLogIn",
 			password : "=",
 			email : "="
 		},
-		templateUrl : "/luzenly/templates/lzyLogIn.html",
+		templateUrl : "/templates/lzyLogIn.html",
 		link : function($scope, $element, $attrs){
 				$scope.password ="";
 				$scope.email="";	

@@ -5,7 +5,7 @@
 	//Variables to connect to the DB
 	$serverName = "localhost";
 	$userName = "root";
-	$password = "Davidcastro123";
+	$password = "";
 	$dbName = "lzydbtest";
 	//Creating connection
 	$connection = new mysqli($serverName, $userName, $password,$dbName);

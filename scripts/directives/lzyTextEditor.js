@@ -4,7 +4,7 @@ angular.module("luzenly").directive("lzyTextEditor", function() {
 		scope : {
 			textWritten : "="
 		},
-		templateUrl : "/luzenly/templates/lzyTextEditor.html",
+		templateUrl : "/templates/lzyTextEditor.html",
 		link : function(scope, element, attrs) {
 			var quill = new Quill('#editor', {
 				modules : {

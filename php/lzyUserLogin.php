@@ -2,13 +2,14 @@
     include("lzyGetConnection.php");
 	//Code for succesful connection here
     $request = json_decode(file_get_contents('php://input'));
+    echo $request;
     $email = $request->email;
     $password = mysql_real_escape_string($request->password);
     $passwordHash = hash('sha512',$password.'luzenlysaltcc', true);
     session_start();
     
-    $query = "SELECT id,nick,type FROM accounts 
-    WHERE accounts.email = {$email} AND accounts.password = {$passwordHash};";
+    $query = "SELECT ID, NICK, USER_TYPE FROM ACCOUNTS 
+    WHERE ACCOUNTS.EMAIL = {$email} AND ACCOUNTS.PASSWORD = {$passwordHash};";
 
     $checkResult = $connection->query($query); 
    // $id;

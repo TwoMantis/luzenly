@@ -20,9 +20,10 @@ angular.module("luzenly").service('lzyUserService',
             }
 
             this.getSession = function(successCallback,errorCallback){
-                this.__getHttpObject("/php/lzyGetSession.php","GET",{}).then(successCallback,errorCallback
+            	successCallback({});
+                //this.__getHttpObject("/luzenly/php/lzyGetSession.php","GET",{}).then(successCallback,errorCallback
                     
-                );
+                //);
             }
 
             this.createUser = function(nick, password, email, successCallback, errorCallback){
@@ -31,8 +32,7 @@ angular.module("luzenly").service('lzyUserService',
                     password : password,
                     email : email
                 };
-                
-                this.__getHttpObject("/php/lzyCreateUser.php", "POST", data);
+                this.__getHttpObject("/php/lzyCreateUser.php", "POST", data).then(successCallback, errorCallback);
              }
 
              this.login = function(email, password, successCallback, errorCallback){

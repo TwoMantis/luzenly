@@ -8,7 +8,7 @@ angular.module("luzenly").directive("lzyContentUploadSelector",
 			url : "=",
 			textEntry : "="
 		},
-		templateUrl : "/luzenly/templates/lzyContentUploadSelector.html",
+		templateUrl : "/templates/lzyContentUploadSelector.html",
 		link : function($scope, $element, $attrs){
 			$scope.onTypeChange = function(){
 				$scope.title = "";

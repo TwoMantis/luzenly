@@ -5,13 +5,13 @@
     $posts = $connection->query($query); 
     $results = array();
     WHILE ($rows = mysqli_fetch_array($posts)):
-        $id = $rows['id'];
-        $type    = $rows['type'];
-        $author   = $rows['autor'];
-        $date = $rows['update_date'];
-        $text = $rows['text_content'];
-        $title = $rows['title'];
-        $url = $rows['url'];
+        $id = $rows['ID'];
+        $type    = $rows['POST_TYPE'];
+        $author   = $rows['AUTHOR'];
+        $date = $rows['UPDATE_DATE'];
+        $text = $rows['TEXT_CONTENT'];
+        $title = $rows['TITLE'];
+        $url = $rows['URL'];
         $instance=array('id' => $id, 'type' => $type, 'author' => $author,'update_date' => $date, 'title' => $title, 'url' => $url, 'text' => $text);
         array_push($results,$instance);
     endwhile;
