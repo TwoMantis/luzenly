@@ -1,18 +1,13 @@
 <div>
     <div ng-repeat="post in posts">
-        <div ng-if="post.type==='V'" ng-click="showPost(post)">
-            <lzy-video-entry video-title = "post.title" youtube-url="post.url"></lzy-video-entry>
+        <div ng-if="post.type==='V'">
+            <lzy-video-entry post = 'post'></lzy-video-entry>
         </div>
-        <div ng-if="post.type === 'I'" ng-click="showPost(post)">
-            <lzy-image-entry entry-title="post.title" url="post.url"></lzy-image-entry>
+        <div ng-if="post.type === 'I'">
+            <lzy-image-entry post = 'post'></lzy-image-entry>
         </div>
-        <div ng-if = "post.type === 'T'" ng-click="showPost(post)">
-            <lzy-text-entry text-input="post.text"></lzy-text-entry>
-        </div>
-        <div class="container" >
-            <div class="row">
-                <input type="button" ng-click="editPost(post)" value="Edit Post" />
-            </div>
+        <div ng-if = "post.type === 'T'">
+            <lzy-text-entry post = 'post'></lzy-text-entry>
         </div>
     </div>
 </div>

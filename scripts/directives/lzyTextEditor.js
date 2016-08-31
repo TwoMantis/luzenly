@@ -15,9 +15,9 @@ angular.module("luzenly").directive("lzyTextEditor", function() {
 			});
 			quill.on('text-change', function(delta, source) {
 				if (source == 'user') {
-					scope.textWritten= quill.getHTML();
+					scope.textWritten = quill.getHTML();
 					scope.$apply();
-					
+
 				}
 			})
 		},

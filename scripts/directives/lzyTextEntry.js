@@ -1,17 +1,17 @@
-		angular.module("luzenly").directive("lzyTextEntry", ['$sce',
-				function($sce){
-					return{
-						replace: "E",
-						templateUrl : "/templates/lzyTextEntry.html",
-						scope:{
-							textInput : "="
-						},
-						link: function(scope){
-							scope.$watch("textInput", function(newValue, oldValue){
-								scope.textToBind=$sce.trustAsHtml(newValue);
-							})
-							
-						}
-					
-					}	
-		}]);
+angular.module("luzenly").directive("lzyTextEntry", [ '$sce', function($sce) {
+	return {
+		replace : "E",
+		templateUrl : "/templates/lzyTextEntry.html",
+		scope : {
+			post : '=',
+		},
+		link : function(scope) {
+			
+			scope.$watch('post', function(newValue, oldValue) {
+				scope.textToBind = $sce.trustAsHtml(newValue.text);
+			}, true);
+
+		}
+
+	}
+} ]);

@@ -8,7 +8,8 @@ angular.module("luzenly").service('lzyUserService',
 					data : data
 				});
                 return http;
-                }
+            }
+	        
             this.getUser = function(){
                 
                 return {
@@ -21,9 +22,6 @@ angular.module("luzenly").service('lzyUserService',
 
             this.getSession = function(successCallback,errorCallback){
             	successCallback({});
-                //this.__getHttpObject("/luzenly/php/lzyGetSession.php","GET",{}).then(successCallback,errorCallback
-                    
-                //);
             }
 
             this.createUser = function(nick, password, email, successCallback, errorCallback){

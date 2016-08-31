@@ -1,20 +1,22 @@
-      angular.module('luzenly').controller('lzySinglePostCtrl',
-        ['$scope', 'lzySavePostService', '$routeParams', '$rootScope', 
-        function($scope, lzySavePostService, $routeParams, $rootScope){
-            $scope.posts = null;
+angular.module('luzenly').controller('lzySinglePostCtrl',
+		[
+				'$scope',
+				'lzyPostService',
+				'$routeParams',
+				'$rootScope',
+				function($scope, lzyPostService, $routeParams, $rootScope) {
+					$scope.posts = null;
 
-            if($rootScope.singlePost==null){
-				lzySavePostService.getPost($routeParams.id,
-				function(response){
-                    $scope.posts = response.data;
-                }, 
-				function(error){console.log("error");});
-            }else{   
-                $scope.posts = { posts : $rootScope.singlePost };
-            }
-            $scope.editPost = function(post){
-               $rootScope.singlePost= post;
-               window.location.href = "#editPost/";
-            }
-        }]
-      );
+					if ($rootScope.singlePost == null) {
+						lzyPostService.getPost($routeParams.id, function(
+								response) {
+							$scope.posts = response.data;
+						}, function(error) {
+							console.log("error");
+						});
+					} else {
+						$scope.posts = {
+							posts : $rootScope.singlePost
+						};
+					}
+				} ]);

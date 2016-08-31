@@ -1,5 +1,5 @@
-angular.module("luzenly").service('lzySavePostService',
-     ['$http',function($http){
+angular.module("luzenly").service('lzyPostService',
+     ['$http', 'lzyUser', function($http, lzyUser){
 	   this.__getHttpObject = function(url, method, data){
         		var http = $http({
 					url : url,
@@ -9,15 +9,10 @@ angular.module("luzenly").service('lzySavePostService',
                 return http;
        } 
        
-       this.createAccount = function () {
-        		//$http.get("http://localhost/php/connectionTest.php").then(function(response){
-				//	alert("Ready!");
-				//});
-   			}
-
-		this.createPost = function(idCreator, title, url, type, text, successCallback, errorCallback) {
+		this.createPost = function(title, url, type, text, successCallback, errorCallback) {
+			idUser = lzyUser.getId();
             var data = { 
-				idCreator : idCreator,
+				idCreator : idUser,
 				title : title,
 				url : url,
 				type : type,
@@ -36,7 +31,20 @@ angular.module("luzenly").service('lzySavePostService',
 				text : text,
 				type : type
 				};
+            
             this.__getHttpObject("/php/lzyEditPost.php", "POST", data)
+                .then(successCallback
+			    ,errorCallback);
+		};
+		
+		this.votePost = function(idPost, like, successCallback, errorCallback) {
+			idUser = lzyUser.getId();
+            var data = { 
+				idPost : idPost,
+				idUser : idUser,
+				liked : like
+				};
+            this.__getHttpObject("/php/lzyVotePost.php", "POST", data)
                 .then(successCallback
 			    ,errorCallback);
 		};
